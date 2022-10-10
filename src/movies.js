@@ -18,15 +18,29 @@ function howManyMovies(moviesArray) {
                 return true;
             }
         }
-git 
     }).filter(movie => movie.director === 'Steven Spielberg');
 
     return dramaArr.length;
 }
 
-
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
-function scoresAverage(moviesArray) { }
+function scoresAverage(moviesArray) {
+    if (moviesArray.length === 0) {
+        return 0
+    }
+    let sum = moviesArray.reduce((previousValue, currentValue) => {
+        if (typeof currentValue.score === "number") {
+            return previousValue + currentValue.score
+        }
+        else {
+            return previousValue;
+        }
+    }, 0)
+
+    let average = +(sum / moviesArray.length).toFixed(2);
+    console.log(average)
+    return +average
+}
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) { }
